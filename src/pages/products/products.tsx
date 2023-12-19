@@ -1,7 +1,9 @@
-const products = () => {
+import './products.scss'
+
+const Products = () => {
   return (
-    <div className="products">products</div>
+    <div className='products'>Products</div>
   )
 }
 
-export default products
+export default Products
