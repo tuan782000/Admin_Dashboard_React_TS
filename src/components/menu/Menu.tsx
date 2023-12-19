@@ -1,9 +1,27 @@
-import './menu.scss'
+import { Link } from "react-router-dom";
+import "./menu.scss";
+import { menu } from "../../data.ts";
 
 const Menu = () => {
-  return (
-    <div className='menu'>Menu</div>
-  )
-}
+    return (
+        <div className="menu">
+            {menu.map((item) => (
+                <div className="item" key={item.id}>
+                    <span className="title">{item.title}</span>
+                    {
+                      item.listItems.map((listItem) => (
+                        <Link to="/"
+                        key={listItem.id} className="listItem">
+                        <img src={listItem.icon} alt="home" />
+                        <span className="listItemTitle">{listItem.title}</span>
+                    </Link>
+                      ))
+                    }
 
-export default Menu
+                </div>
+            ))}
+        </div>
+    );
+};
+
+export default Menu;

@@ -167,3 +167,11 @@ export default App
 
 Ở đoạn code trên mình đã thay đổi cách mà router, dùng Outlet và bổ sung trang login, những tái sử dụng Layout (phần menu bên tay trái), là những thằng con (children) Home Users Products. Riêng Login không tái sử dụng nên phần riêng biệt.
 
+## Design Navbar và Design Footer
+
+## Menu design
+
+## CSS GRID
+
+## Chart
+
