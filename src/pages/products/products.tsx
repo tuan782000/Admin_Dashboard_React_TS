@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import './products.scss'
-import DataTable from '../../components/dataTable/DataTable'
-import Add from '../../components/add/Add'
-import { GridColDef } from '@mui/x-data-grid';
-import { products } from '../../data';
+import { useState } from "react";
+import "./Products.scss";
+import DataTable from "../../components/dataTable/DataTable";
+import Add from "../../components/add/Add";
+import { GridColDef } from "@mui/x-data-grid";
+import { products } from "../../data";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -25,24 +25,24 @@ const columns: GridColDef[] = [
     field: "color",
     type: "string",
     headerName: "Color",
-    width: 100,
+    width: 150,
   },
   {
     field: "price",
     type: "string",
     headerName: "Price",
-    width: 100,
+    width: 200,
   },
   {
     field: "producer",
     headerName: "Producer",
     type: "string",
-    width: 100,
+    width: 200,
   },
   {
     field: "createdAt",
     headerName: "Created At",
-    width: 100,
+    width: 200,
     type: "string",
   },
   {
@@ -54,17 +54,35 @@ const columns: GridColDef[] = [
 ];
 
 const Products = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+
+  // TEST THE API
+
+  // const { isLoading, data } = useQuery({
+  //   queryKey: ["allproducts"],
+  //   queryFn: () =>
+  //     fetch("http://localhost:8800/api/products").then(
+  //       (res) => res.json()
+  //     ),
+  // });
+
   return (
-    <div className='products'>
+    <div className="products">
       <div className="info">
         <h1>Products</h1>
         <button onClick={() => setOpen(true)}>Add New Products</button>
       </div>
-      <DataTable slug="products" columns={columns} rows={products}/>
-      {open && <Add slug="product" columns={columns} setOpen={setOpen}/>}
-    </div>
-  )
-}
+      <DataTable slug="products" columns={columns} rows={products} />
+      {/* TEST THE API */}
 
-export default Products
+      {/* {isLoading ? (
+        "Loading..."
+      ) : (
+        <DataTable slug="products" columns={columns} rows={data} />
+      )} */}
+      {open && <Add slug="product" columns={columns} setOpen={setOpen} />}
+    </div>
+  );
+};
+
+export default Products;
