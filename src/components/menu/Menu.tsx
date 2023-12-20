@@ -8,16 +8,18 @@ const Menu = () => {
             {menu.map((item) => (
                 <div className="item" key={item.id}>
                     <span className="title">{item.title}</span>
-                    {
-                      item.listItems.map((listItem) => (
-                        <Link to="/"
-                        key={listItem.id} className="listItem">
-                        <img src={listItem.icon} alt="home" />
-                        <span className="listItemTitle">{listItem.title}</span>
-                    </Link>
-                      ))
-                    }
-
+                    {item.listItems.map((listItem) => (
+                        <Link
+                            to={listItem.url}
+                            key={listItem.id}
+                            className="listItem"
+                        >
+                            <img src={listItem.icon} alt="home" />
+                            <span className="listItemTitle">
+                                {listItem.title}
+                            </span>
+                        </Link>
+                    ))}
                 </div>
             ))}
         </div>
